@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <h1>
-      Marvel Studio
-    </h1>
+
+  <div class="container-fluid">
     <PageLogin/>
     <!-- <PageComics/> -->
     <ListPersonajes/>
@@ -20,6 +18,7 @@ export default {
   components: {
     ListPersonajes,
     PageLogin,
+
     // PageComics
   }
 }

@@ -51,20 +51,6 @@ router.get("/nombre",[
     validarCampos
 ],usuarioGetListarNombre)
 
-router.get("/Mostrarimagen/:id",[   
-    check('id','No es un ID válido'),
-    check('id').custom(HerlpersUsuario.existeUsuarioById),
-    validarCampos
-],mostrarImagenCloud)
-
-router.put("/Subirimagen/:id",[
-    validarJWT,
-    check('id').not().isEmpty(),
-    check('id').custom(HerlpersUsuario.existeUsuarioById),
-    validarExistaArchivo,
-    validarCampos
-],cargarArchivoCloudPut) 
-
 router.put("/activar/:id",[
     validarJWT,
     check('id').isMongoId(),

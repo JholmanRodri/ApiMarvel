@@ -1,5 +1,5 @@
 import Usuario from "../models/usuarios.js";
-//mongodb://localhost:27017/laboratorio
+
 const HerlpersUsuario = {
   existeEmail: async (email) => {
     if (email) {
@@ -29,20 +29,6 @@ const HerlpersUsuario = {
       throw new Error(`El nombre: ${nombre} no existe`)
     }
   },
-
-  // contacto: async (contacto) => {
-  //   contacto.forEach(contactos => {
-  //     if (!contactos.nombre){
-  //       throw new Error(`El nombre del contacto es obligatorio`)
-  //     }
-  //     if (!contactos.telefono){
-  //       throw new Error(`El numero del contacto es obligatorio`)
-  //     }
-  //     if (!contactos.correoElectronico){
-  //       throw new Error(`El correo electronico del contacto es obligatorio`)
-  //     }
-  //   })
-  // },
 
   noexisteEmail:async(email)=>{
     if(email){

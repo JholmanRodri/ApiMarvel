@@ -1,13 +1,12 @@
 <template>
     <div class="card">
-        <img :src="personaje.thumbnail" alt="" class="card-image">
+        <img :src="personaje.images.path" alt="" class="card-image">
         <div class="card-container">
-            <h3 class="card-title card-header">{{ personaje.name }}</h3>
-            <p class="card-description">{{ personaje.description.slice(0, 300) }}</p>
+            <h3 class=" card-header">{{ personaje.title }}</h3>
+            <p class="card-description">{{ personaje.description }}</p>
             <p> {{ }} </p>
         </div>
     </div>
-
 </template>
 
 <script>

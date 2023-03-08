@@ -24,7 +24,7 @@ export default createStore({
         const privateKey = '979d030f571474d1cf6cdc79dce41ca2941437f8';
         const timestamp = new Date().getTime();
         const hash = CryptoJS.MD5(timestamp + privateKey + publicKey).toString();
-        const apiUrl = 'https://gateway.marvel.com/v1/public/characters';
+        const apiUrl = 'https://gateway.marvel.com/v1/public/comics';
         const url = `${apiUrl}?ts=${timestamp}&apikey=${publicKey}&hash=${hash}`
         const response = await fetch(url)
 

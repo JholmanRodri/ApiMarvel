@@ -31,11 +31,23 @@ export default {
     }
 }
 </script>
-<style lang="scss">
+<style scoped>
 .Personajes {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
     margin: 5rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .Personajes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .Personajes {
+        grid-template-columns: 1fr;
+    }
 }
 </style>

@@ -27,7 +27,6 @@ class Server{
     routes(){
         this.app.use("/usuarios",usuario)
     }
-
     listen(){
         this.app.listen(this.port, ()=>{
             console.log(`Servidor escuchando en el puerto ${this.port}`);

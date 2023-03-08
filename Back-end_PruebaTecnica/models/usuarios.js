@@ -5,7 +5,6 @@ const UsuarioSchema= new mongoose.Schema({
     email:{type:String,required:true,unique:true},
     password:{type:String,required:true,minlength:8},
     documento:{type:String,required:true,maxlength:11},
-    foto:{type: String},
     estado:{type:Number,default:1},
     createdAt:{type:Date,default:Date.now()}
 }) 
