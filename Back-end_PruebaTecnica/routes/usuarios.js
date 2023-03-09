@@ -15,7 +15,7 @@ router.post("/registro",[
     // check('email').custom(HerlpersUsuario.existeEmail),
     check('password',"La contraseña es obligatoria").not().isEmpty(),
     check('password',"La contraseña debe tener mas de 8 caracteres").isLength({min:6}),
-    validarCampos,
+    validarCampos, 
 ],usuarioPost);
 
 router.put("/datos/:id",[
