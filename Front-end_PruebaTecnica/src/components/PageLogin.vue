@@ -51,7 +51,8 @@ export default {
             emailRegister: '',
             passwordRegister: '',
             cambio: 0,
-            close: 1
+            close: 1,
+            valido: ''
         }
     },
     methods: {
@@ -77,7 +78,23 @@ export default {
                 .catch(error => {
                     console.log(error);
                 })
-        return Login();
+        },
+        registro() {
+            axios.post("/usuarios/registro", {
+                username: this.usernameRegister,
+                email: this.emailRegister,
+                password: this.passwordRegister
+            })
+                .then(response => {
+                    console.log(response.data);
+
+                    this.email = this.emailRegister;
+                    this.password = this.passwordRegister;
+                    this.login();
+                })
+                .catch(error => {
+                    console.log(error);
+                })
         },
     }
 }
@@ -93,12 +110,14 @@ export default {
     border-radius: 5px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
 }
+
 .login-header {
     text-align: center;
     font-size: 28px;
     color: #333;
     margin-bottom: 20px;
 }
+
 .login-input {
     display: block;
     width: 100%;
@@ -111,13 +130,16 @@ export default {
     background-color: transparent;
     transition: border-color 0.2s ease-in-out;
 }
+
 .login-input:focus {
     outline: none;
     border-color: #6eb1ff;
 }
+
 .login-input:hover {
     background-color: #eeeeee;
 }
+
 .login-submit-btn {
     display: block;
     width: 100%;
@@ -130,6 +152,7 @@ export default {
     border-radius: 5px;
     cursor: pointer;
 }
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -137,23 +160,28 @@ export default {
     padding: 10px;
     background-color: #212121;
 }
+
 .navbar-title {
     font-size: 24px;
     font-weight: bold;
 }
+
 .navbar-brand {
     color: #fff;
     text-decoration: none;
 }
+
 .navbar-menu {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
 }
+
 .navbar-item {
     margin-left: 20px;
 }
+
 .navbar-link {
     color: #fff;
     text-decoration: none;
@@ -161,7 +189,7 @@ export default {
     border-radius: 5px;
     transition: background-color 0.2s ease-in-out;
 }
+
 .navbar-link:hover {
     background-color: #6eb1ff;
-}
-</style>
+}</style>
