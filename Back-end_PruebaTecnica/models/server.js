@@ -1,9 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { dbConnection } from "../database/config.js";
-import fileupload from "express-fileupload";
 import usuario from "../routes/usuarios.js";
-
 
 class Server{
     constructor(){
@@ -17,15 +15,13 @@ class Server{
     middlewares(){
         this.app.use(express.json());
         this.app.use(cors());
-        this.app.use(express.static('public'))
     }
 
     async connectarbd(){
         await dbConnection()
     }
-
     routes(){
-        this.app.use("/usuarios",usuario)
+        this.app.use("/api/usuarios",usuario)
     }
     listen(){
         this.app.listen(this.port, ()=>{

@@ -1,22 +1,18 @@
 import {Router} from "express"
-import {usuarioPost,usuarioPutdatos,usuarioPutActivar,cargarArchivoCloudPut,mostrarImagenCloud,usuarioPutDesactivar,usuarioLogin,usuarioGetListarid,usuarioGetListarNombre} from "../controllers/usuarios.js"
+import {usuarioPost,usuarioPutdatos,usuarioPutActivar,usuarioPutDesactivar,usuarioLogin,usuarioGetListarid,usuarioGetListarNombre} from "../controllers/usuarios.js"
 import { check } from "express-validator";
 import HerlpersUsuario from "../helpers/usuarios.js";
 import { validarCampos } from "../middlewares/validar_campos.js";
 import { validarJWT } from "../middlewares/validar_jwt.js";
-import validarExistaArchivo from "../middlewares/validar_file.js";
+
 const router=Router()
 
-
-router.post("/",[
+router.post("/registro",[
     check('nombre',"El nombre es obligatorio").not().isEmpty(),
     check('nombre',"El nombre debe tener menos de 50 caracteres").isLength({max:50}),
-    check('documento',"El documento es obligatorio").not().isEmpty(),
-    check('documento',"El documento debe tener menos de 13 caracteres").isLength({min:5}),
-    check('documento').custom(HerlpersUsuario.existeDocumento),
     check('email',"El email es Obligatorio").not().isEmpty(),
     check('email',"No es un email valido").isEmail(),
-    check('email').custom(HerlpersUsuario.existeEmail),
+    // check('email').custom(HerlpersUsuario.existeEmail),
     check('password',"La contraseña es obligatoria").not().isEmpty(),
     check('password',"La contraseña debe tener mas de 8 caracteres").isLength({min:6}),
     validarCampos,
